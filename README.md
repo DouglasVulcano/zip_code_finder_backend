@@ -43,12 +43,12 @@ Após esses passos, o servidor estará em execução e pronto para ser utilizado
 
 -   Método: GET
 -   URL: http://localhost/api/search-address/{cep}
-    Substitua {cep} pelo CEP desejado. Por exemplo, para buscar o endereço do CEP 01001000, a URL completa será: http://localhost/api/search-address/06145200
+    Substitua {cep} pelo CEP desejado. Por exemplo, para buscar o endereço do CEP 01001000, a URL completa será: http://localhost/api/search-address/01001000
 
 ### Exemplo de chamada com curl:
 
 ```bash
-curl -X GET "http://localhost/api/search-address/06145200" -H "Accept: application/json"
+curl -X GET "http://localhost/api/search-address/01001000" -H "Accept: application/json"
 ```
 
 ## Rodando os Testes Unitários
@@ -62,3 +62,7 @@ Para garantir a qualidade do código, você pode executar os testes unitários i
 ## Recursos Adicionais
 
 [**_Documentação do Laravel Sail_**](https://laravel.com/docs/11.x/sail): Para mais detalhes sobre o ambiente de desenvolvimento.
+
+## Licença
+
+Este projeto está licenciado sob a [**MIT License**](https://github.com/DouglasVulcano/zip_code_finder_backend/blob/main/LICENSE).
