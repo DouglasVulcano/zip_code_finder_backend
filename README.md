@@ -1,15 +1,12 @@
-## Zip Code Finder
-Api para busca de endereços.
+# Zip Code Finder - API para Busca de Endereços
 
-### Como clonar:
+Bem-vindo ao **Zip Code Finder**, uma aplicação backend para consulta de endereços por CEP. Este projeto foi desenvolvido para ser executado em um ambiente Docker, utilizando o Laravel Sail.
 
-```
-git clone git@github.com:DouglasVulcano/zip_code_finder_backend.git
-```
+## Instalação de Dependências
 
--   Executar o comando a seguir para que as dependencias do projeto sejam baixadas
+Execute o comando abaixo para instalar as dependências do projeto:
 
-```
+```bash
 docker run --rm \
     -u "$(id -u):$(id -g)" \
     -v "$(pwd):/var/www/html" \
@@ -18,10 +15,50 @@ docker run --rm \
     composer install --ignore-platform-reqs
 ```
 
-### Como executar:
+## Como executar o projeto
 
+1. Acesse a pasta do projeto e renomeie o arquivo **.env.example** para **.env**, em seguida, rode o comando para gerar a APP_KEY do Laravel:
+
+```bash
+./vendor/bin/sail artisan key:generate
 ```
-./vendor/bin/sail up -d
 
+2. Inicie o ambiente Docker utilizando o comando abaixo:
+
+```bash
+./vendor/bin/sail up -d
+```
+
+3. Aplique as migrações para configurar o banco de dados:
+
+```bash
 ./vendor/bin/sail artisan migrate
 ```
+
+Após esses passos, o servidor estará em execução e pronto para ser utilizado.
+
+## Como utilizar a API
+
+### Endpoint: Buscar Endereço por CEP
+
+-   Método: GET
+-   URL: http://localhost/api/search-address/{cep}
+    Substitua {cep} pelo CEP desejado. Por exemplo, para buscar o endereço do CEP 01001000, a URL completa será: http://localhost/api/search-address/06145200
+
+### Exemplo de chamada com curl:
+
+```bash
+curl -X GET "http://localhost/api/search-address/06145200" -H "Accept: application/json"
+```
+
+## Rodando os Testes Unitários
+
+Para garantir a qualidade do código, você pode executar os testes unitários incluídos no projeto. Use o seguinte comando:
+
+```bash
+./vendor/bin/sail test
+```
+
+## Recursos Adicionais
+
+[**_Documentação do Laravel Sail_**](https://laravel.com/docs/11.x/sail): Para mais detalhes sobre o ambiente de desenvolvimento.
