@@ -6,9 +6,16 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class SearchAddressRequest extends FormRequest
 {
-    public function prepareForValidation()
+    /**
+     * Prepare the data for validation.
+     */
+    protected function prepareForValidation()
     {
         $input = $this->route()->parameters();
+
+        if (isset($input['cep'])) {
+            $input['cep'] = preg_replace('/[^0-9]/', '', $input['cep']);
+        }
         $this->replace($input);
     }
 
@@ -32,8 +39,21 @@ class SearchAddressRequest extends FormRequest
         return [
             'cep' => [
                 'required',
-                'string',
-            ]
+                'regex:/^\d{8}$/',
+            ],
+        ];
+    }
+
+    /**
+     * Get custom error messages for validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'cep.required' => __('exceptions.invalid_cep_format'),
+            'cep.regex' => __('exceptions.address_not_found'),
         ];
     }
 }

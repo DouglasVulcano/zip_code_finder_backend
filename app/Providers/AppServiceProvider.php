@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Core\Interfaces\iAddressService;
+use App\Core\Interfaces\AddressServiceInterface;
 use App\Infra\Services\ViaCepService;
 use Illuminate\Support\ServiceProvider;
 
@@ -13,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(iAddressService::class, ViaCepService::class);
+        $this->app->bind(AddressServiceInterface::class, ViaCepService::class);
     }
 
     /**

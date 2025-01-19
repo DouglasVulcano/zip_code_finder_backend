@@ -2,16 +2,16 @@
 
 namespace App\Core\UseCases;
 
-use App\Core\Interfaces\iAddressService;
 use App\Core\Domain\ValueObjects\Cep;
+use App\Core\Interfaces\AddressServiceInterface;
 
 class SearchAddressUseCase
 {
-    private iAddressService $cepService;
+    private AddressServiceInterface $addressService;
 
-    public function __construct(iAddressService $addressService)
+    public function __construct(AddressServiceInterface $addressService)
     {
-        $this->cepService = $addressService;
+        $this->addressService = $addressService;
     }
 
     /**
@@ -21,6 +21,6 @@ class SearchAddressUseCase
     public function execute(string $cep): array
     {
         $cepVO = new Cep($cep);
-        return $this->cepService->searchAddressByCep($cepVO);
+        return $this->addressService->searchAddressByCep($cepVO);
     }
 }
