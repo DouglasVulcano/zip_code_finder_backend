@@ -45,6 +45,10 @@ Após esses passos, o servidor estará em execução e pronto para ser utilizado
 -   URL: http://localhost/api/search-address/{cep}
     Substitua {cep} pelo CEP desejado. Por exemplo, para buscar o endereço do CEP 01001000, a URL completa será: http://localhost/api/search-address/01001000
 
+### Documentação Swagger:
+
+-   Acessar a [**documentação**](http://localhost/api/documentation#/Address)
+
 ### Exemplo de chamada com curl:
 
 ```bash

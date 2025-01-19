@@ -1,0 +1,113 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Zip Code Finder API",
+        "description": "Zip Code Finder",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:80/api",
+            "description": "local server"
+        }
+    ],
+    "paths": {
+        "/search-address/{cep}": {
+            "get": {
+                "tags": [
+                    "Address"
+                ],
+                "summary": "Search address by CEP",
+                "operationId": "5814fb72f767f4029dc459bf8033cd1f",
+                "parameters": [
+                    {
+                        "name": "cep",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "example": "01001000"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "address": {
+                                            "type": "string",
+                                            "example": "Praça da Sé"
+                                        },
+                                        "city": {
+                                            "type": "string",
+                                            "example": "São Paulo"
+                                        },
+                                        "state": {
+                                            "type": "string",
+                                            "example": "SP"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Invalid CEP",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Não foi possível encontrar um endereço para o CEP: 111."
+                                        },
+                                        "errors": {
+                                            "properties": {
+                                                "cep": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "Não foi possível encontrar um endereço para o CEP: 111."
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid CEP",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Não foi possível encontrar um endereço para o CEP: 00000000."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Address",
+            "description": "Address"
+        }
+    ]
+}
