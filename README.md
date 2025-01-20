@@ -1,6 +1,6 @@
 # Zip Code Finder - API para Busca de Endereços
 
-Bem-vindo ao **Zip Code Finder**, uma aplicação backend para consulta de endereços por CEP. Este projeto foi desenvolvido para ser executado em um ambiente Docker, utilizando o Laravel Sail.
+Bem-vindo ao **Zip Code Finder**, uma aplicação backend para consulta de endereços por CEP.
 
 ## Instalação de Dependências
 
