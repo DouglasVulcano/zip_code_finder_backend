@@ -52,8 +52,8 @@ class SearchAddressRequest extends FormRequest
     public function messages()
     {
         return [
-            'cep.required' => __('exceptions.invalid_cep_format'),
-            'cep.regex' => __('exceptions.address_not_found', ['cep' => $this->cep]),
+            'cep.required' => __('exceptions.cep_is_required'),
+            'cep.regex' => __('exceptions.invalid_cep_format', ['cep' => $this->cep]),
         ];
     }
 }
