@@ -53,7 +53,7 @@ class SearchAddressRequest extends FormRequest
     {
         return [
             'cep.required' => __('exceptions.cep_is_required'),
-            'cep.regex' => __('exceptions.invalid_cep_format', ['cep' => $this->cep]),
+            'cep.regex' => __('exceptions.invalid_cep_format'),
         ];
     }
 }
