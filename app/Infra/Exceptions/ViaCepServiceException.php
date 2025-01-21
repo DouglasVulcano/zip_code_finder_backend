@@ -10,7 +10,6 @@ class ViaCepServiceException extends Exception
 {
     /**
      * @param string $message 
-     * @param int $statusCode 
      */
     public function __construct(string $message)
     {
